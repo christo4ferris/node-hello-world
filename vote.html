@@ -1,0 +1,142 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family:IBMPlexSans-SemiBold;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: middle;
+    -ms-flex-align: middle;
+    align-items: middle;
+    position: relative;
+    visibility: visible;
+    background:#464646;
+    width:100%;
+    height:100%;
+    top: 0px;
+    left: 0px;
+  }
+  h1 {
+    font-size:32px;
+    color:#aad889;
+    letter-spacing:0;
+    text-align:left;
+    visibility: visible;}
+  p {
+    font-family:IBMPlexSans;
+    font-size:20px;
+    color:#aad889;
+    letter-spacing:0;
+    text-align:left;
+    visibility: visible;}
+  img {
+    max-width: 202px;
+    position: absolute;
+    left: 10px;
+    top: 40px;
+    width: 20%;
+    height: auto;}
+  ul { list-style: none; }
+  .banner {
+    box-sizing: border-box;
+    padding-top: 6px;
+    padding-left: 10%;
+    font-size:24px;
+    height: 33px;
+    width: 100%;
+    color: #aad889;
+    text-align: center;
+    display:inline-block;
+    min-height: 33px;
+    position: relative;
+    visibility: visible;
+    background:#000000;}
+  .votebox {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    padding: 5%;
+    background:#595859;
+    width:70%;
+    height:100%;}
+  .votebtn {
+    box-sizing: border-box;
+    width: 25px;
+    height: 25px;
+    background:#08091e;
+    border:none;
+    margin: 10px;
+    margin-top: 15px;
+    border-radius: 50%;
+    display:inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    color: #aad889;
+    text-align: center;
+    cursor:pointer;
+    white-space:nowrap}
+  .votebtn:hover{
+    box-shadow:0 10px 20px 0 rgba(0,0,0,0.2),0 10px 20px 0 rgba(0,0,0,0.59)
+  }
+  .votebtn{-webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none}
+  .ballot {
+    flex-direction: column;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    left: 0%;
+  }
+  .item {
+    width: 30%;
+  }
+  .line {
+    flex-direction: row;
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+    left: 5%;
+    padding: 5%;
+    background:#595859;
+    width:70%;
+    height:33px;}
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*=".bannerr"] {
+        font-size: 16px;
+        padding-left: 5%;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="banner"></div>
+  <img src="./images/Hyperledger_Fabric_Logo_White.png" alt="Hyperledger Fabric Logo"></img>
+  <div class="votebox">
+    <h1>Fabric+Burrow Demo</h1>
+    <h1>Question</h1>
+    <p>This is where the question would be put that people would answer
+        with the demo - 2 options (or more) will choose an answer then press
+        either `vote` or `submit`.</p>
+    <div class="ballot">
+      <div class="line">
+        <div class="item"><p>Option A</p></div>
+        <div id="opta" class="votebtn"></div>
+      </div>
+      <div class="line">
+        <div class="item"><p>Option A</p></div>
+        <div id="opta" class="votebtn"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
