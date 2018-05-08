@@ -73,8 +73,8 @@ img {
   display: flex;
   position: relative;
   margin-bottom: 20px;
-  left: 5%;
-  padding: 5%;
+  left: 2%;
+  padding: 2%;
   background:#595859;
   width:70%;
   height:43px;}
@@ -94,7 +94,8 @@ img {
   color: #aad889;
   cursor:pointer;
   height: 15px;
-  margin-top: 15px;
+  margin-top: 20px;
+  margin-left: 40px;
   border-radius: 20%;
   white-space:nowrap}
 .votebtn {
