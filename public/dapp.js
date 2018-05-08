@@ -1,4 +1,7 @@
 var myContract;
+// var provider = "http://localhost:5000";
+var provider = "https://fabproxy.mybluemix.net";
+
 function getAccountAddress() {
   var name = "ETHAccount=";
   var decodedCookie = decodeURIComponent(document.cookie);
@@ -24,7 +27,7 @@ function getContract() {
   } else {
     var web3 = new Web3();
   }
-  web3.setProvider(new web3.providers.HttpProvider("http://localhost:5000"));
+  web3.setProvider(new web3.providers.HttpProvider(provider));
   var account = getAccountAddress();
   web3.eth.defaultAccount = '0x' + account;
   console.log("Account " + account)
