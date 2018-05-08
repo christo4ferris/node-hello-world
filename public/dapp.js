@@ -28,7 +28,7 @@ function getContract() {
   var account = getAccountAddress();
   web3.eth.defaultAccount = '0x' + account;
   console.log("Account " + account)
-  var address = "86a33d389dd38e10970847ed75331d43f320c93b"
+  var address = "1da3646c7bcc7d5a46940946eb9e8a259031bb69"
 
   console.log("Got address: " + address)
   var votingABI = [
@@ -94,7 +94,7 @@ function voteA() {
 
 function voteB() {
   var myContract = getContract();
-  myContract.vote('0');
+  myContract.vote('1');
   window.location.href = 'results.html';
 }
 
