@@ -26,6 +26,7 @@ function getContract() {
     }
   web3.setProvider(new web3.providers.HttpProvider("http://localhost:5000"));
   var account = getAccountAddress();
+  web3.eth.defaultAccount = '0x' + account;
   console.log("Account " + account)
   var address = "86a33d389dd38e10970847ed75331d43f320c93b"
 
@@ -188,11 +189,13 @@ function getContract() {
 function voteA() {
   var myContract = getContract();
   myContract.vote('0');
+  window.location.href = 'results.html';
 }
 
 function voteB() {
   var myContract = getContract();
   myContract.vote('0');
+  window.location.href = 'results.html';
 }
 
 function getResults() {
