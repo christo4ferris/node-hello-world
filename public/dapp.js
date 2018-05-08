@@ -200,8 +200,15 @@ function voteB() {
 
 function getResults() {
   var myContract = getContract();
-  var optionA = myContract.proposals('0').toString();
-  var optionB = myContract.proposals('1').toString();
-  document.getElementById('opta').innerText = optionA;
-  document.getElementById('optb').innerText = optionB;
+  var optionA = myContract.proposals(0).toString();
+  var valA = parseInt(optionA.substring(optionA.indexOf(',') +1));
+  var optionB = myContract.proposals(1).toString();
+  var valB = parseInt(optionB.substring(optionB.indexOf(',') + 1));
+  var tot = valA + valB;
+  var perA = (valA / tot) * 100;
+  var perB = (valB / tot) * 100;
+  document.getElementById('opta').innerText = valA.toString();
+  document.getElementById('opta').style.width = perA.toString() + '%';
+  document.getElementById('optb').innerText = valB.toString();
+  document.getElementById('optb').style.width = perB.toString() + '%';
 }
