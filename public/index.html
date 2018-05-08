@@ -1,12 +1,14 @@
 <html>
 <head>
+<link href='https://fonts.googleapis.com/css?family=IBM Plex Sans' rel='stylesheet'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href='https://fonts.googleapis.com/css?family=IBM+Plex+Sans' rel='stylesheet'>
 <style>
   * {
     box-sizing: border-box;
   }
   body {
-    font-family: IBMPlexSans-SemiBold;
+    font-family: 'IBM Plex Sans';
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -20,12 +22,15 @@
     height:100%;
     top: 0px;
     left: 0px;
+    margin: 0px;
   }
   h1 {
-    font-size:32px;
+    font-size:5vh;
     color:#aad889;
     letter-spacing:0;
-    text-align:left;
+    text-align:center;
+    letter-spacing: 1;
+    font-weight: 600;
     visibility: visible;}
   p {
     font-family:IBMPlexSans;
@@ -46,17 +51,12 @@
   .banner {
     height: 23px;
     width: 100%;
-    align-self: left;
-    min-height: 23px;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: middle;
-    -ms-flex-align: middle;
-    align-items: middle;
-    position: relative;
+    align-self: center;
+    position: absolute;
     visibility: visible;
-    background:#000000;}
+    background:#000000;
+    top: 0%;
+  }
   .results {
     flex-direction: column;
     display: flex;
@@ -82,32 +82,69 @@
     width:70%;
     height:33px;}
   .votebox {
-    position: absolute;
     top: 15%;
     left: 15%;
-    padding: 5%;
-    background:#595859;
     width:70%;
-    height:100%;}
-  .votebar {
-    position:absolute;
+    height:40%;
+    margin: auto;
+    position: absolute;
+  }
+  .inputbox{
+    top: 10%;
+    width: 75%;
+    margin: auto;
+    align-self: center;
+  }
+  form{
+    align-items: center;
+    font-family:'IBM Plex Sans';
+    font-size:3vh;
+    color:#ffffff;
+    letter-spacing:0;
+    text-align: left;
+    align-self: center;
+    width:100%;
+    height: auto;
+  }
+  input[type="text"]{
+    border-radius:4px;
+    width:100%;
+    height:13%;
+    font-size: 2vh;
+  }
+  input[type="password"]{
+    border-radius:4px;
+    width:100%;
+    height:13%;
+    font-size: 2vh;;
+  }
+  input[type="submit"]{
     background:#08091e;
-    border:none;
-    display:inline-block;
-    color: #aad889;
-    cursor:pointer;
-    height: 15px;
-    margin-top: 15px;
-    border-radius: 20%;
-    white-space:nowrap}
+    width:147px;
+    height:47px;
+    font-size: 2.5vh;
+    color: #ffffff;
+    float: right;
+    border-style: none;
+}
 </style>
 </head>
 <body>
   <div class="banner"></div>
-  <img src="./images/Hyperledger_Fabric_Logo_White.png" alt="Hyperledger Fabric Logo"></img>
+  <img src="./images/Hyperledger_Fabric_Logo_White.png" alt="Hyperledger Fabric Logo"></img><br>
   <div class="votebox">
-    <h1>Fabric+Burrow Demo</h1>
-    <h1>Login</h1>
+    <h1>Fabric+Burrow EVM Demo</h1>
+    <form>
+      <div class="inputbox">
+        User Account:<br>
+        <input type="text" name="UserAccount"><br><br>
+      </div>
+      <div class="inputbox">
+        Password:<br>
+        <input type="password" name="Password"><br><br>
+      </div>
+      <input type="submit" value="Login" name="submit"><br>
+    </form>
   </div>
 </body>
 </html>
