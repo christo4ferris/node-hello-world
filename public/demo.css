@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+html{
+  height: 100%;
+}
 body {
   font-family: IBMPlexSans-SemiBold;
   display: -webkit-flex;
@@ -9,19 +12,21 @@ body {
   -webkit-align-items: middle;
   -ms-flex-align: middle;
   align-items: middle;
-  position: relative;
+  position: absolute;
   visibility: visible;
   background:#464646;
   width:100%;
   height:100%;
   top: 0px;
   left: 0px;
+  margin: 0px;
 }
 h1 {
-  font-size:28px;
+  font-size:5vh;
   color:#aad889;
   letter-spacing:0;
-  text-align:left;
+  text-align:center;
+  letter-spacing: 1;
   visibility: visible;}
 p {
   font-family:IBMPlexSans;
@@ -29,7 +34,24 @@ p {
   color:#aad889;
   letter-spacing:0;
   text-align:left;
-  visibility: visible;}
+  visibility: visible;
+  width:70%;
+  margin: auto;}
+a{
+  color: #aad889;
+}
+a:link{
+  color: #ffffff;
+}
+a:visited{
+  color: #ffffff;
+}
+a:hover{
+  color: #83c653;
+}
+a:active{
+  color: #83c653;
+}
 li {
   list-style: none;
 }
@@ -37,23 +59,28 @@ img {
   max-width: 202px;
   position: absolute;
   left: 10px;
-  top: 45px;
-  width: 25%;
-  height: auto;}
+  top: 28px;
+  height: 57px;}
 .banner {
-  height: 33px;
+  height: 23px;
   width: 100%;
-  align-self: left;
-  min-height: 33px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: middle;
-  -ms-flex-align: middle;
-  align-items: middle;
-  position: relative;
+  align-self: center;
+  position: absolute;
   visibility: visible;
-  background:#000000;}
+  background:#000000;
+  top: 0%;
+}
+.prompt{
+  align-items: center;
+  font-family:'IBM Plex Sans';
+  letter-spacing:0;
+  text-align: left;
+  align-self: center;
+  width: 70%;
+  height: 65%;
+  margin: auto;
+  color:#aad889;
+}
 .results {
   flex-direction: column;
   display: flex;
@@ -75,24 +102,22 @@ img {
   margin-bottom: 20px;
   left: 2%;
   padding: 2%;
-  background:#595859;
   width:70%;
   height:43px;}
 .votebox {
-  position: fixed;
-  top: 25%;
-  left: 15%;
-  padding: 2%;
-  background:#595859;
-  width: 70%;
-  height: 100%;}
+  height:50%;
+  margin: auto;
+  position: relative;
+  overflow: visible;
+  display: inline-block;
+}
 .votebar {
   position:absolute;
   background:#08091e;
   border:none;
   display:inline-block;
   color: #aad889;
-  cursor:pointer;
+  cursor: pointer;
   height: 15px;
   margin-top: 20px;
   margin-left: 40px;
@@ -105,29 +130,67 @@ img {
   background:#08091e;
   border:none;
   margin-left: 40px;
-  margin-top: 15px;
   border-radius: 50%;
   display:inline-block;
   vertical-align: middle;
   text-decoration: none;
   color: #aad889;
   cursor:pointer;
-  white-space:nowrap}
+  white-space:nowrap;
+  user-select:none;}
 .votebtn:hover{
   box-shadow:0 10px 20px 0 rgba(0,0,0,0.2),0 10px 20px 0 rgba(0,0,0,0.59)
 }
-.votebtn{-webkit-touch-callout:none;
-  -webkit-user-select:none;
-  -khtml-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none}
+.votebtn:checked{
+
+}
 .ballot {
   flex-direction: column;
   display: flex;
-  position: absolute;
+  padding-top: 4%;
   width: 100%;
   left: 0%;
+}
+.inputbox{
+  top: 10%;
+  width: 75%;
+  margin: auto;
+  align-self: center;
+}
+.loginbox{
+  align-items: center;
+  font-family:'IBM Plex Sans';
+  font-size:3vh;
+  color:#ffffff;
+  letter-spacing:0;
+  text-align: left;
+  align-self: center;
+  width:100%;
+  height: 65%;
+  margin: 0;
+}
+input[type="text"]{
+  border-radius:4px;
+  width:80%;
+  height:10%;
+  font-size: 2vh;
+}
+input[type="password"]{
+  border-radius:4px;
+  width:80%;
+  height:10%;
+  font-size: 2vh;
+}
+input[type="submit"]{
+  background:#08091e;
+  width:147px;
+  height:47px;
+  font-size: 2.5vh;
+  color: #ffffff;
+  float: right;
+  border-style: none;
+  border-radius:4px;
+  margin-right: 5%;
 }
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
