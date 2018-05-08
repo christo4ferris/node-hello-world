@@ -2,7 +2,8 @@ function SetAccountCookie(username,password){
   var d = new Date();
   d.setTime(d.getTime() + (1*24*60*60*1000));
   var expires = "expires="+ d.toUTCString();
-  document.cookie = "ETHAccount=" + username + ";" + expires + ";path=/";
+  var cookie = "ETHAccount=" + username + ";" + expires + ";path=/";
+  document.cookie = cookie;
 }
 function login(doc){
   accountAddr = document.getElementById('accountAddr').value
