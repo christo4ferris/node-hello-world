@@ -1,292 +1,128 @@
-<html>
-<head>
+<!DOCTYPE HTML>
+<html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family:IBMPlexSans-SemiBold;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: middle;
-    -ms-flex-align: middle;
-    align-items: middle;
-    position: relative;
-    visibility: visible;
-    background:#464646;
-    width:100%;
-    height:100%;
-    top: 0px;
-    left: 0px;
-  }
-  h1 {
-    font-size:28px;
-    color:#aad889;
-    letter-spacing:0;
-    text-align:left;
-    visibility: visible;}
-  p {
-    font-family:IBMPlexSans;
-    font-size:18px;
-    color:#aad889;
-    letter-spacing:0;
-    text-align:left;
-    visibility: visible;}
-  img {
-    max-width: 202px;
-    position: absolute;
-    left: 10px;
-    top: 45px;
-    width: 25%;
-    height: auto;}
-  ul { list-style: none; }
-  .banner {
-    box-sizing: border-box;
-    padding-top: 6px;
-    padding-left: 10%;
-    height: 43px;
-    width: 100%;
-    color: #aad889;
-    text-align: center;
-    display:inline-block;
-    min-height: 33px;
-    position: relative;
-    visibility: visible;
-    background:#000000;}
-  .votebox {
-    position: absolute;
-    top: 15%;
-    left: 15%;
-    padding: 5%;
-    background:#595859;
-    width:70%;
-    height:100%;}
-  .votebtn {
-    box-sizing: border-box;
-    width: 25px;
-    height: 25px;
-    background:#08091e;
-    border:none;
-    margin-left: 40px;
-    margin-top: 15px;
-    border-radius: 50%;
-    display:inline-block;
-    vertical-align: middle;
-    text-decoration: none;
-    color: #aad889;
-    cursor:pointer;
-    white-space:nowrap}
-  .votebtn:hover{
-    box-shadow:0 10px 20px 0 rgba(0,0,0,0.2),0 10px 20px 0 rgba(0,0,0,0.59)
-  }
-  .votebtn{-webkit-touch-callout:none;
-    -webkit-user-select:none;
-    -khtml-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none}
-  .ballot {
-    flex-direction: column;
-    display: flex;
-    position: absolute;
-    width: 100%;
-    left: 0%;
-  }
-  .item {
-    width: 35%;
-  }
-  .line {
-    flex-direction: row;
-    display: flex;
-    position: relative;
-    margin-bottom: 20px;
-    left: 5%;
-    padding: 5%;
-    background:#595859;
-    width:70%;
-    height:33px;}
-  @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    [class*="p"] {
-        font-size: 16px;
+<head>
+  <style>
+    * {
+      box-sizing: border-box;
     }
-    [class*="h1"] {
-        font-size: 20px;
+    body {
+      font-family: IBMPlexSans-SemiBold;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: middle;
+      -ms-flex-align: middle;
+      align-items: middle;
+      position: relative;
+      visibility: visible;
+      background:#464646;
+      width:100%;
+      height:100%;
+      top: 0px;
+      left: 0px;
     }
-  }
-</style>
-<script type="text/javascript" src="bower_components/web3/dist/web3.min.js"></script>
-<script type="text/javascript">
-  function vote(string opt){
-    console.log('starting...');
-    var Web3 = require('web3');
-    var web3 = new Web3();
-    web3.setProvider(new web3.providers.HttpProvider("http://localhost:5000"));
-    var account = web3.eth.accounts[ 0 ];
-    var address = "86a33d389dd38e10970847ed75331d43f320c93b";
-    var votingABI = [{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "to",
-				"type": "address"
-			}
-		],
-		"name": "delegate",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "voter",
-				"type": "address"
-			}
-		],
-		"name": "giveRightToVote",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"name": "proposalNames",
-				"type": "bytes32[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "proposal",
-				"type": "uint256"
-			}
-		],
-		"name": "vote",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "chairperson",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "proposals",
-		"outputs": [
-			{
-				"name": "name",
-				"type": "bytes32"
-			},
-			{
-				"name": "voteCount",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "voters",
-		"outputs": [
-			{
-				"name": "weight",
-				"type": "uint256"
-			},
-			{
-				"name": "voted",
-				"type": "bool"
-			},
-			{
-				"name": "delegate",
-				"type": "address"
-			},
-			{
-				"name": "vote",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "winnerName",
-		"outputs": [
-			{
-				"name": "winnerName_",
-				"type": "bytes32"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "winningProposal",
-		"outputs": [
-			{
-				"name": "winningProposal_",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	}
-];
-    var VotingContract = web3.eth.contract(votingABI);
-    var myContract = VotingContract.at(address);
-    if (opt == "A") {
-      myContract.vote('0');
-    } else {
-      myContract.vote('1');
+    h1 {
+      font-size:28px;
+      color:#aad889;
+      letter-spacing:0;
+      text-align:left;
+      visibility: visible;}
+    p {
+      font-family:IBMPlexSans;
+      font-size:18px;
+      color:#aad889;
+      letter-spacing:0;
+      text-align:left;
+      visibility: visible;}
+    img {
+      max-width: 202px;
+      position: absolute;
+      left: 10px;
+      top: 45px;
+      width: 25%;
+      height: auto;}
+    ul { list-style: none; }
+    .banner {
+      box-sizing: border-box;
+      padding-top: 6px;
+      padding-left: 10%;
+      height: 43px;
+      width: 100%;
+      color: #aad889;
+      text-align: center;
+      display: inline-block;
+      min-height: 43px;
+      position: relative;
+      visibility: visible;
+      background:#000000;}
+    .votebox {
+      position: absolute;
+      top: 15%;
+      left: 15%;
+      padding: 5%;
+      background:#595859;
+      width:70%;
+      height:100%;}
+    .votebtn {
+      box-sizing: border-box;
+      width: 25px;
+      height: 25px;
+      background:#08091e;
+      border:none;
+      margin-left: 40px;
+      margin-top: 15px;
+      border-radius: 50%;
+      display:inline-block;
+      vertical-align: middle;
+      text-decoration: none;
+      color: #aad889;
+      cursor:pointer;
+      white-space:nowrap}
+    .votebtn:hover{
+      box-shadow:0 10px 20px 0 rgba(0,0,0,0.2),0 10px 20px 0 rgba(0,0,0,0.59)
     }
-  }
+    .votebtn{-webkit-touch-callout:none;
+      -webkit-user-select:none;
+      -khtml-user-select:none;
+      -moz-user-select:none;
+      -ms-user-select:none;
+      user-select:none}
+    .ballot {
+      flex-direction: column;
+      display: flex;
+      position: absolute;
+      width: 100%;
+      left: 0%;
+    }
+    .item {
+      width: 35%;
+    }
+    .line {
+      flex-direction: row;
+      display: flex;
+      position: relative;
+      margin-bottom: 20px;
+      left: 5%;
+      padding: 5%;
+      background:#595859;
+      width:70%;
+      height:33px;}
+    @media only screen and (max-width: 768px) {
+      /* For mobile phones: */
+      [class*="p"] {
+          font-size: 16px;
+      }
+      [class*="h1"] {
+          font-size: 20px;
+      }
+    }
+  </style>
+<script type="text/javascript" src="web3.js"></script>
+<script type="text/javascript" src="dapp.js"></script>
 </script>
 </head>
-<body>
+<body onload="getContract()">
   <div class="banner"></div>
   <img src="./images/Hyperledger_Fabric_Logo_White.png" alt="Hyperledger Fabric Logo"></img>
   <div class="votebox">
@@ -298,11 +134,11 @@
     <div class="ballot">
       <div class="line">
         <div class="item"><p>Option A</p></div>
-        <div id="opta"><button class="votebtn" onclick="vote('A')"></button></div>
+        <div id="opta"><button class="votebtn" onclick="voteA()"></button></div>
       </div>
       <div class="line">
         <div class="item"><p>Option B</p></div>
-        <div id="optb"><button class="votebtn" onclick="vote('B')"></button></div>
+        <div id="optb"><button class="votebtn" onclick="voteB()"></button></div>
       </div>
     </div>
   </div>
