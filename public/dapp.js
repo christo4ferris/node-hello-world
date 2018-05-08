@@ -1,29 +1,29 @@
 var myContract;
-function getAccountAddress(){
-    var name = "ETHAccount=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
+function getAccountAddress() {
+  var name = "ETHAccount=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
     }
-    console.log("Failed to get ethereum account address. Please login")
-    return;
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  console.log("Failed to get ethereum account address. Please login")
+  return;
 
 }
 
 function getContract() {
   console.log("Getting the Contract")
   if (typeof window.web3 !== "undefined" && typeof window.web3.currentProvider !== "undefined") {
-      var web3 = new Web3(window.web3.currentProvider);
-    } else {
-      var web3 = new Web3();
-    }
+    var web3 = new Web3(window.web3.currentProvider);
+  } else {
+    var web3 = new Web3();
+  }
   web3.setProvider(new web3.providers.HttpProvider("http://localhost:5000"));
   var account = getAccountAddress();
   web3.eth.defaultAccount = '0x' + account;
@@ -88,13 +88,13 @@ function getContract() {
 
 function voteA() {
   var myContract = getContract();
-  myContract.vote('0');
+  myContract.vote(0);
   window.location.href = 'results.html';
 }
 
 function voteB() {
   var myContract = getContract();
-  myContract.vote('1');
+  myContract.vote(1);
   window.location.href = 'results.html';
 }
 
