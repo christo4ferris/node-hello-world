@@ -22,14 +22,14 @@
     left: 0px;
   }
   h1 {
-    font-size:32px;
+    font-size:28px;
     color:#aad889;
     letter-spacing:0;
     text-align:left;
     visibility: visible;}
   p {
     font-family:IBMPlexSans;
-    font-size:20px;
+    font-size:18px;
     color:#aad889;
     letter-spacing:0;
     text-align:left;
@@ -38,16 +38,15 @@
     max-width: 202px;
     position: absolute;
     left: 10px;
-    top: 40px;
-    width: 20%;
+    top: 45px;
+    width: 25%;
     height: auto;}
   ul { list-style: none; }
   .banner {
     box-sizing: border-box;
     padding-top: 6px;
     padding-left: 10%;
-    font-size:24px;
-    height: 33px;
+    height: 43px;
     width: 100%;
     color: #aad889;
     text-align: center;
@@ -70,14 +69,13 @@
     height: 25px;
     background:#08091e;
     border:none;
-    margin: 10px;
+    margin-left: 40px;
     margin-top: 15px;
     border-radius: 50%;
     display:inline-block;
     vertical-align: middle;
     text-decoration: none;
     color: #aad889;
-    text-align: center;
     cursor:pointer;
     white-space:nowrap}
   .votebtn:hover{
@@ -97,7 +95,7 @@
     left: 0%;
   }
   .item {
-    width: 30%;
+    width: 35%;
   }
   .line {
     flex-direction: row;
@@ -300,11 +298,11 @@
     <div class="ballot">
       <div class="line">
         <div class="item"><p>Option A</p></div>
-        <div id="opta" class="votebtn"><button onclick="vote('A')"></button></div>
+        <div id="opta"><button class="votebtn" onclick="vote('A')"></button></div>
       </div>
       <div class="line">
         <div class="item"><p>Option B</p></div>
-        <div id="optb" class="votebtn"><button onclick="vote('B')"></button></div>
+        <div id="optb"><button class="votebtn" onclick="vote('B')"></button></div>
       </div>
     </div>
   </div>
