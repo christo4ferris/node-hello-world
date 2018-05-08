@@ -1,4 +1,3 @@
-var myContract;
 function getContract() {
   if (typeof window.web3 !== "undefined" && typeof window.web3.currentProvider !== "undefined") {
       var web3 = new Web3(window.web3.currentProvider);
@@ -160,15 +159,18 @@ function getContract() {
 ];
   var VotingContract = web3.eth.contract(votingABI);
   myContract = VotingContract.at(address);
+  return myContract;
 }
 function voteA() {
+  var myContract = getContract();
   myContract.vote('0');
 }
 function voteB() {
+  var myContract = getContract();
   myContract.vote('0');
 }
 function getResults() {
-  getContract();
+  var myContract = getContract();
   var optionA = myContract.proposals('0').toString();
   var optionB = myContract.proposals('1').toString();
   document.getElementById('opta').innerText = optionA;
