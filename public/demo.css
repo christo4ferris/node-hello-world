@@ -82,7 +82,7 @@ img {
   letter-spacing:0;
   text-align: left;
   align-self: center;
-  width: 70%;
+  width: 60%;
   height: 65%;
   margin: auto;
   color:#aad889;
@@ -141,8 +141,12 @@ img {
 .ballot {
   flex-direction: column;
   padding-top: 4%;
-  width: 70%;
+  width: 80%;
   margin: auto;
+}
+.ballotOptions{
+  margin:0 auto 10%;
+  width: 80%;
 }
 .inputbox{
   top: 10%;
@@ -207,7 +211,6 @@ input[type="radio"] + span::before {
   margin-right: 0.75em;
   transition: 0.5s ease all;
 }
-
 input[type="radio"]:checked + span::before {
   background: #aad889;
 }

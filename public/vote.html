@@ -21,14 +21,16 @@
         <a href="https://www.hyperledger.org/projects/hyperledger-fabric">
           Hyperledger Fabric</a>? Let us know!</p>
       <form class="ballot" action="javascript:;" onsubmit="vote(this)">
-        <label for="optionA">
-            <input type="radio" name="proposals" id="optionA" value="opta"/>
-            <span class="radioBtn">Awesome!</span>
-        </label> <br>
-        <label for="optionB">
-            <input type="radio" name="proposals" id="optionB" value="optb"/>
-            <span class="radioBtn">Spectacular!</span>
-        </label>
+        <div class="ballotOptions">
+          <label for="optionA">
+              <input type="radio" name="proposals" id="optionA" value="opta"/>
+              <span class="radioBtn">Awesome!</span>
+          </label> <br>
+          <label for="optionB">
+              <input type="radio" name="proposals" id="optionB" value="optb"/>
+              <span class="radioBtn">Spectacular!</span>
+          </label>
+        </div>
         <input type="submit" value="Submit" name="submit"><br>
       </form>
     </div>
