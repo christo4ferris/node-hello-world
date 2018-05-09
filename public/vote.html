@@ -20,16 +20,17 @@
           as chaincode inside
         <a href="https://www.hyperledger.org/projects/hyperledger-fabric">
           Hyperledger Fabric</a>? Let us know!</p>
-      <div class="ballot">
-        <div class="line">
-          <div class="item"><p>Awesome!</p></div>
-          <button class="votebtn" onclick="voteA()"></button>
-        </div>
-        <div class="line">
-          <div class="item"><p>Spectacular!</p></div>
-          <button class="votebtn" onclick="voteB()"></button>
-        </div>
-      </div>
+      <form class="ballot" action="javascript:;" onsubmit="vote(this)">
+        <label for="optionA">
+            <input type="radio" name="proposals" id="optionA" value="opta"/>
+            <span class="radioBtn">Awesome!</span>
+        </label> <br>
+        <label for="optionB">
+            <input type="radio" name="proposals" id="optionB" value="optb"/>
+            <span class="radioBtn">Spectacular!</span>
+        </label>
+        <input type="submit" value="Submit" name="submit"><br>
+      </form>
     </div>
   </div>
 </body>

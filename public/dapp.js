@@ -89,6 +89,13 @@ function getContract() {
   return myContract;
 }
 
+function vote(){
+  if (document.getElementById('optionA').checked == true) {
+    return voteA()
+  }
+  return voteB()
+}
+
 function voteA() {
   var myContract = getContract();
   myContract.vote(0);

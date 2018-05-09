@@ -37,6 +37,12 @@ p {
   visibility: visible;
   width:70%;
   margin: auto;}
+.option{
+  float: left;
+  width: 70%;
+  margin: 0;
+  display: inline-block;
+}
 a{
   color: #aad889;
 }
@@ -72,7 +78,7 @@ img {
 }
 .prompt{
   align-items: center;
-  font-family:'IBM Plex Sans';
+  font-family:IBMPlexSans;
   letter-spacing:0;
   text-align: left;
   align-self: center;
@@ -80,6 +86,7 @@ img {
   height: 65%;
   margin: auto;
   color:#aad889;
+  font-size: 1.5vh;
 }
 .results {
   flex-direction: column;
@@ -121,7 +128,6 @@ img {
   height: 15px;
   margin-top: 20px;
   margin-left: 40px;
-  border-radius: 20%;
   white-space:nowrap}
 .votebtn {
   box-sizing: border-box;
@@ -146,7 +152,6 @@ img {
 }
 .ballot {
   flex-direction: column;
-  display: flex;
   padding-top: 4%;
   width: 100%;
   left: 0%;
@@ -192,6 +197,58 @@ input[type="submit"]{
   border-radius:4px;
   margin-right: 5%;
 }
+input[type="radio"]{
+  /*display: inline-block;
+  border-radius: 4px;
+  background-color: #08091e;*/
+
+  border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px; margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+}
+input[type="radio"] + span::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.25em;
+  border-radius: 1em;
+  /*border: 0.125em solid #aad889;*/
+  border: 0.125em solid #aad889;
+  background: black;
+  box-shadow: 0 0 0 0.25em #000;
+  margin-right: 0.75em;
+  transition: 0.5s ease all;
+}
+
+input[type="radio"]:checked + span::before {
+  background: #aad889;
+  /*border: 0.125em solid #aad889;*/
+}
+input[type="radio"]:hover + span::before {
+  box-shadow: 0 0 0 0.25em #aad889;
+}
+label{
+  display: block;
+  height: auto;
+  padding: 2%;
+}
+/*.radioBtn{
+  position: absolute;
+  background-color: #eee;
+  border-radius:50%;
+  top:0;
+  left:0;
+  height: 1vh;
+  width: 1vh;
+  background-color: #eee;
+  border-radius: 50%;
+  display: inline-block;
+}*/
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   [class*="p"] {
