@@ -117,8 +117,8 @@ function getResults() {
   var tot = valA + valB;
   var perA = (valA / tot) * 100;
   var perB = (valB / tot) * 100;
-  document.getElementById('opta').innerText = valA.toString();
+  document.getElementById('resultA').innerText = valA.toString();
   document.getElementById('opta').style.width = perA.toString() + '%';
-  document.getElementById('optb').innerText = valB.toString();
+  document.getElementById('resultB').innerText = valB.toString();
   document.getElementById('optb').style.width = perB.toString() + '%';
 }
